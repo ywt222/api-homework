@@ -1,4 +1,6 @@
-# HwApi
+# 知识点: ActiveRecord, Sinatra, MySql
+
+## HwApi
 
 TODO: Write a gem description
 
