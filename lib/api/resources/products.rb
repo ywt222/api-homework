@@ -22,20 +22,17 @@ get '/products/:id' do
 end
 
 post '/products' do
-  request.body.rewind
   request_payload = JSON.parse request.body.read
-  add_pro = Product.new(
+  add_pro = Product.create(
           :name => request_payload['name'],
           :category => request_payload['category'],
           :price => request_payload['price']
   )
-  add_pro.save
   new_pro = Product.find(add_pro['id'])
   new_pro.to_json
 end
 
 put '/products/:id' do
-  request.body.rewind
   request_payload = JSON.parse request.body.read
   pro = Product.find("#{params['id']}")
   pro.update(name:request_payload['name'],category:request_payload['category'],
